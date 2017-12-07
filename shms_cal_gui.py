@@ -9,7 +9,7 @@ from ROOT import TRootEmbeddedCanvas,TApplication
 from ROOT import gROOT, TCanvas
 
 XVALS,YVALS=[],[]
-START=0
+START=28
 NCHAN=224
 
 def getScalars():
@@ -42,10 +42,10 @@ def getScalars():
             #print XVALS[ii-START],
             #print YVALS[ii-START]
         
-        if chan[ii]==16*ix:
-            iy=0
-            ix+=1
-        iy+=1 
+            if pchan[ii-START]==16*ix:
+                iy=0
+                ix+=1
+            iy+=1 
     #print 'EndEvent'
     #print len(pzvals),
     #print len(XVALS),
@@ -54,7 +54,7 @@ def getScalars():
 
 
 def calcRates(rates):
-    total,maximum=0,0
+    total,maximum=0.0,0.0
     for ii in range(len(XVALS)):
         xx,zz=XVALS[ii],rates[ii]
         total+=zz

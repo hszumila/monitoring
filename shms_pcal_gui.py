@@ -9,7 +9,7 @@ from ROOT import TRootEmbeddedCanvas,TApplication
 from ROOT import gROOT, TCanvas
 
 XVALS,YVALS=[],[]
-START=224
+START=0
 NCHAN=28
 
 
@@ -33,7 +33,7 @@ def getScalars():
             chan.append(int (info[0])+1)
             info[1] = info[1].rpartition('(')[0]
             zvals.append(float(info[1])/1000)
-    #assumption here that it goes 1-14left, then 1-14 right, starting at 224-252        
+           
     ix,iy=1,1
     for ii in range (len(zvals)):
         if ii>=START:
